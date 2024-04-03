@@ -19,10 +19,12 @@ TriOsc triOsc;
 Env env;
 
 // Times and levels for the ASR envelope
-float attackTime = 0.001;
+float attackTime = 0.901; //PMS this was 0.001
 float sustainTime = 0.004;
 float sustainLevel = 0.3;
 float releaseTime = 0.2;
+
+float amp = 0.2; //PMS added this
 
 // This is an octave in MIDI notes.
 int[] midiSequence = { 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72 };
@@ -55,7 +57,7 @@ void draw() {
 
     // midiToFreq transforms the MIDI value into a frequency in Hz which we use to
     // control the triangle oscillator with an amplitute of 0.5
-    triOsc.play(midiToFreq(midiSequence[note]), 0.5);
+    triOsc.play(midiToFreq(midiSequence[note]), amp);
 
     // The envelope gets triggered with the oscillator as input and the times and
     // levels we defined earlier
