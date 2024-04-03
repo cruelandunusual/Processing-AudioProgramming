@@ -11,6 +11,7 @@ import processing.sound.*;
 SinOsc[] sineWaves; // Array of sines
 float[] sineFreq; // Array of frequencies
 int numSines = 5; // Number of oscillators to use
+float MAX_VOL = 0.2;
 
 void setup() {
   size(640, 360);
@@ -21,7 +22,7 @@ void setup() {
 
   for (int i = 0; i < numSines; i++) {
     // Calculate the amplitude for each oscillator
-    float sineVolume = (1.0 / numSines) / (i + 1);
+    float sineVolume = (MAX_VOL / numSines) / (i + 1);
     // Create the oscillators
     sineWaves[i] = new SinOsc(this);
     // Start Oscillators
